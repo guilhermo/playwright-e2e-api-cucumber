@@ -18,7 +18,7 @@ Funcionalidade: Gestão do Catálogo de Produtos via API
     Então o responseCode no corpo JSON deve ser 200
     E os detalhes do produto devem exibir o preço "Rs. 500" e marca "Polo"
 
-  @positivo @tarefa2
+  @positivo
   Cenário: Validar listagem de todas as marcas (GET)
     Quando eu solicito a lista de todas as marcas
     Então valido que o status code HTTP é 200
