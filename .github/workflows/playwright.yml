@@ -1,0 +1,50 @@
+name: Playwright CI/CD Pipeline
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-automation:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+
+    # Dados fictícios
+    env:
+      APP_ENV: production
+      BASE_URL: https://automationexercise.com
+      USER_EMAIL: demarcoQA@teste.com
+      USER_PASS: Abcde1234!
+      USER_USERNAME: Demarco
+      CARD_NAME: Demarco
+      CARD_NUMBER: 5248893730954434
+      CARD_CVC: 123
+      CARD_EXP_MONTH: 12
+      CARD_EXP_YEAR: 2030
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: 'yarn'
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+
+    - name: Install Playwright Browsers
+      run: yarn playwright install --with-deps
+
+    - name: Run All Tests (API, E2E & Mobile)
+      run: yarn test:all
+
+    - name: Archive Production Artifacts
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7
