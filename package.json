@@ -1,0 +1,22 @@
+{
+  "name": "playwright-e2e-api-cucumber",
+  "version": "1.0.0",
+  "repository": "git@github.com:guilhermo/Playwright-E2E-api-Tests.git",
+  "author": "Guilhermo Demarco",
+  "license": "MIT",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.7.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.2",
+    "dotenv": "^17.3.1",
+    "playwright-bdd": "^8.4.2"
+  },
+  "scripts": {
+    "bdd:gen": "bddgen",
+    "test:e2e": "bddgen && playwright test --project=e2e-chromium --project=mobile-pixel",
+    "test:api": "bddgen && playwright test --project=api", 
+    "test:all": "bddgen && playwright test",
+    "test:clean": "rm -rf .features-gen playwright-report test-results",
+    "report": "playwright show-report"
+  }
+}
