@@ -10,10 +10,9 @@ export class CartPage {
   }
 
   async proceedToCheckout() {
+    await this.page.waitForLoadState('load');
     await this.proceedToCheckoutBtn.waitFor({ state: 'visible' });
     await this.proceedToCheckoutBtn.scrollIntoViewIfNeeded();
-    
-    await this.page.waitForTimeout(500);
     
     await Promise.all([
       this.page.waitForURL(/.*checkout/, { waitUntil: 'commit' }), 
