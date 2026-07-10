@@ -1,13 +1,13 @@
-# 🎭 Playwright - E2E & API Automation + Cucumber
+# Playwright - E2E & API Automation + Cucumber
 
 Projeto de automação para a plataforma **Automation Exercise**, cobrindo fluxos de ponta a ponta (E2E) e validações de serviços (API).
 
 ---
 
-## 🚀 Visão Geral
+## Visão Geral
 Este framework foi desenvolvido para simular um cenário real de produção, com foco em resiliência, performance e clareza. Ele integra testes de **API**, **Interface Desktop** e **Emulação Mobile** em uma esteira única de CI/CD.
 
-### 📊 Status dos Testes
+### Status dos Testes
 Atualmente, a suíte conta com **23 cenários**:
 * **API**: 7 testes de contrato, SLA e funcionalidade.
 * **E2E Desktop**: 8 cenários de fluxos de login e checkout.
@@ -15,7 +15,7 @@ Atualmente, a suíte conta com **23 cenários**:
 
 ---
 
-## 🏗️ Arquitetura e Estrutura de Pastas
+## Arquitetura e Estrutura de Pastas
 O projeto utiliza o padrão **Page Object Model (POM)** para UI e **Request Objects** para API.
 
 ```text
@@ -33,14 +33,14 @@ O projeto utiliza o padrão **Page Object Model (POM)** para UI e **Request Obje
 ├── playwright.config.ts  # Configuração global do framework
 └── package.json          # Gerenciamento de scripts e dependências
 ```
-## 🛠️ Tecnologias e Versões
+## Tecnologias e Versões
 * Node.js: v20+ (LTS recomendado)
 * Playwright: ^1.58.2
 * Playwright-BDD: ^8.4.2
 * TypeScript: Linguagem base para tipagem e segurança
 
 ---
-## 📦 Instalação e Configuração
+## Instalação e Configuração
 **Clonar o repositório:**
 ```sh
 git clone git@github.com:guilhermo/playwright-e2e-api-cucumber.git
@@ -59,7 +59,7 @@ yarn playwright install --with-deps
 Crie um arquivo .env duplicando o .env.example e preencha as credenciais. Para facilitar a execução, o .env.example já contém dados fictícios funcionais.
 
 ---
-## 🧪 Executando os Testes
+## Executando os Testes
 
 **Executar Todos os Testes (API, E2E, Mobile):**
 ```sh
@@ -76,7 +76,7 @@ yarn test:e2e
 
 ---
 
-## 📊 Gerando Relatórios
+## Gerando Relatórios
 **Após a execução, visualize o relatório HTML detalhado com:**
 ```sh
 yarn report
@@ -85,7 +85,7 @@ yarn report
 
 ---
 
-## ⚙️ Integração Contínua (CI/CD)
+## Integração Contínua (CI/CD)
 O projeto conta com um pipeline no GitHub Actions que executa automaticamente toda a suíte de testes a cada push na branch principal.
 
 <img width="1899" height="913" alt="image" src="https://github.com/user-attachments/assets/a772cc06-9cc2-4bb1-9eac-3b9411932751" />
