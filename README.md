@@ -1,83 +1,83 @@
 # Playwright - E2E & API Automation + Cucumber
 
-Projeto de automação para a plataforma **Automation Exercise**, cobrindo fluxos de ponta a ponta (E2E) e validações de serviços (API).
+Automation project for the **Automation Exercise** platform, covering end-to-end (E2E) flows and service validations (API).
 
 ---
 
-## Visão Geral
-Este framework foi desenvolvido para simular um cenário real de produção, com foco em resiliência, performance e clareza. Ele integra testes de **API**, **Interface Desktop** e **Emulação Mobile** em uma esteira única de CI/CD.
+## Overview
+This framework was built to simulate a real production scenario, with a focus on resilience, performance, and clarity. It integrates **API**, **Desktop UI**, and **Mobile Emulation** tests in a single CI/CD pipeline.
 
-### Status dos Testes
-Atualmente, a suíte conta com **23 cenários**:
-* **API**: 7 testes de contrato, SLA e funcionalidade.
-* **E2E Desktop**: 8 cenários de fluxos de login e checkout.
-* **E2E Mobile (Pixel 7)**: 8 cenários de fluxos críticos em ambiente mobile.
+### Test Status
+The suite currently holds **23 scenarios**:
+* **API**: 7 contract, SLA, and functional tests.
+* **E2E Desktop**: 8 login and checkout flow scenarios.
+* **E2E Mobile (Pixel 7)**: 8 critical-flow scenarios in a mobile environment.
 
 ---
 
-## Arquitetura e Estrutura de Pastas
-O projeto utiliza o padrão **Page Object Model (POM)** para UI e **Request Objects** para API.
+## Architecture and Folder Structure
+The project uses the **Page Object Model (POM)** pattern for the UI and **Request Objects** for the API.
 
 ```text
 .
-├── .github/workflows/    # Configuração de CI/CD (GitHub Actions)
+├── .github/workflows/    # CI/CD configuration (GitHub Actions)
 ├── tests/
-│   ├── api/              # Camada de testes de API (BDD)
-│   │   ├── features/     # Cenários em Gherkin
-│   │   ├── resquests/    # Lógica de chamadas HTTP
-│   │   └── steps/        # Implementação dos steps de teste
-│   ├── e2e/              # Camada de testes de Interface (BDD)
-│   │   ├── features/     # Cenários de Login e Checkout
-│   │   └── steps/        # Implementação dos steps de teste
-│   └── support/          # Page Objects e Fixtures Globais
-├── playwright.config.ts  # Configuração global do framework
-└── package.json          # Gerenciamento de scripts e dependências
+│   ├── api/              # API test layer (BDD)
+│   │   ├── features/     # Gherkin scenarios
+│   │   ├── requests/     # HTTP request logic
+│   │   └── steps/        # Test step implementations
+│   ├── e2e/              # UI test layer (BDD)
+│   │   ├── features/     # Login and Checkout scenarios
+│   │   └── steps/        # Test step implementations
+│   └── support/          # Page Objects and Global Fixtures
+├── playwright.config.ts  # Global framework configuration
+└── package.json          # Script and dependency management
 ```
-## Tecnologias e Versões
-* Node.js: v20+ (LTS recomendado)
+## Technologies and Versions
+* Node.js: v20+ (LTS recommended)
 * Playwright: ^1.58.2
 * Playwright-BDD: ^8.4.2
-* TypeScript: Linguagem base para tipagem e segurança
+* TypeScript: Base language for typing and safety
 
 ---
-## Instalação e Configuração
-**Clonar o repositório:**
+## Installation and Setup
+**Clone the repository:**
 ```sh
 git clone git@github.com:guilhermo/playwright-e2e-api-cucumber.git
 cd playwright-e2e-api-cucumber
 ```
-**Instalar dependências:**
+**Install dependencies:**
 ```sh
 yarn install
 ```
-**Instalar navegadores do Playwright:**
+**Install Playwright browsers:**
 ```sh
 yarn playwright install --with-deps
 ```
-**Instalar navegadores do Playwright:**
+**Configure environment variables:**
 
-Crie um arquivo .env duplicando o .env.example e preencha as credenciais. Para facilitar a execução, o .env.example já contém dados fictícios funcionais.
+Create a `.env` file by duplicating `.env.example` and fill in the credentials. To make things easier, `.env.example` already contains working dummy data.
 
 ---
-## Executando os Testes
+## Running the Tests
 
-**Executar Todos os Testes (API, E2E, Mobile):**
+**Run All Tests (API, E2E, Mobile):**
 ```sh
 yarn test:all
 ```
-**Executar Apenas Testes de API:**
+**Run API Tests Only:**
 ```sh
 yarn test:api
 ```
-**Executar Apenas Testes de Interface (Desktop + Mobile):**
+**Run UI Tests Only (Desktop + Mobile):**
 ```sh
 yarn test:e2e
 ```
 
 ---
 
-## Gerando Relatórios
-**Após a execução, visualize o relatório HTML detalhado com:**
+## Generating Reports
+**After execution, view the detailed HTML report with:**
 ```sh
 yarn report
 ```
@@ -85,8 +85,8 @@ yarn report
 
 ---
 
-## Integração Contínua (CI/CD)
-O projeto conta com um pipeline no GitHub Actions que executa automaticamente toda a suíte de testes a cada push na branch principal.
+## Continuous Integration (CI/CD)
+The project includes a GitHub Actions pipeline that automatically runs the entire test suite on every push to the main branch.
 
 <img width="1899" height="913" alt="image" src="https://github.com/user-attachments/assets/a772cc06-9cc2-4bb1-9eac-3b9411932751" />
 
